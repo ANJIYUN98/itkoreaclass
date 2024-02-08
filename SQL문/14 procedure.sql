@@ -400,7 +400,20 @@ call proc_while_07(3);
 select * from googoodan2tbl;
 
 
+-- 반환값 지정
 
+delimiter $$
+create procedure proc_output_01(in h_val int, out o_val char(100))
+begin
+	select userid into o_val from usertbl where height = h_val; -- set 써도 되고 into 넣어도 됨
+end $$
+delimiter ;
+
+set @o_value='';
+call proc_output_01(182, @o_value);
+select @o_value;
+
+select * from usertbl where height = 182;
 
 
 
