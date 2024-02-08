@@ -280,6 +280,7 @@ call proc_while_02(3);
 
 
 -- 09_01 1~10 합
+
 drop procedure proc_while_03;
 delimiter $$
 create procedure proc_while_03()
@@ -328,6 +329,17 @@ create procedure proc_while_05(in n int, in m int)
 begin
 	declare i int;
     declare sum int;
+    declare tmp int; -- 임시 공간
+    
+	-- m은 n보다 작으면 안되니까 임시 공간 만들어서 스왑
+    -- 임시공간 if를 set보다 먼저 선언해야 적용됨 
+    if n>m
+		then 
+            set tmp = n;
+            set n = m;
+            set m = tmp;
+    end if;
+    
     set i =n;
     set sum =0;
     
@@ -339,7 +351,7 @@ begin
 end $$;
 delimiter ;
 
-call proc_while_05(1,3);
+call proc_while_05(3,1);
 
 
 -- 09_04 2단 구구단
@@ -365,7 +377,27 @@ select * from googoodantbl;
 
 
 
+-- 09_05 n단 구구단
+ 
+ drop procedure proc_while_07;
+ create table googoodan2tbl(mul int, i int, result int); 
+delimiter $$
+create procedure proc_while_07(in n int)
+begin
+	declare i int;
+    declare mul int;
+    set i =1;
+    set mul = n;
+    
+    while i<10 do
+		insert into googoodan2tbl values(mul, i, i*mul);
+		set i=i+1;
+    end while;
+end $$;
+delimiter ;
 
+call proc_while_07(3);
+select * from googoodan2tbl;
 
 
 
