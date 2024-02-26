@@ -1,0 +1,134 @@
+----------------------------
+//01
+----------------------------
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git config --global user.email "jwg8910@naver.com"
+C:\Users\Administrator\Downloads\새 폴더 (3)>git config --global user.name "jungwoogyun"
+C:\Users\Administrator\Downloads\새 폴더 (3)>git config --global --list
+user.name=jungwoogyun
+user.email=jwg8910@naver.com
+
+----------------------------
+//02
+----------------------------
+C:\Users\Administrator\Downloads\새 폴더 (3)>git init
+Initialized empty Git repository in C:/Users/Administrator/Downloads/새 폴더 (3)/.git/
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        aaa.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>
+
+
+----------------------------
+//03
+----------------------------
+C:\Users\Administrator\Downloads\새 폴더 (3)>git add aaa.txt
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   aaa.txt
+
+
+----------------------------
+//04
+----------------------------
+C:\Users\Administrator\Downloads\새 폴더 (3)>git add aaa.txt
+C:\Users\Administrator\Downloads\새 폴더 (3)>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   aaa.txt
+
+
+----------------------------
+//05
+----------------------------
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git log
+commit 246f43e7da9d353f33499c718d064ce1d897de38 (HEAD -> master)
+Author: jungwoogyun <jwg8910@naver.com>
+Date:   Fri Feb 23 12:46:18 2024 +0900
+
+    aaa.txt added
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git log --oneline
+246f43e (HEAD -> master) aaa.txt added
+
+
+----------------------------
+//06
+----------------------------
+
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        bbb.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git add *
+
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git commit -m "bbb.txt added"
+[master b506f2e] bbb.txt added
+ 1 file changed, 1 insertion(+)
+ create mode 100644 bbb.txt
+
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git log --oneline
+b506f2e (HEAD -> master) bbb.txt added
+246f43e aaa.txt added
+
+
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git add *
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git commit -m .
+[master f344f48] .
+ 1 file changed, 1 insertion(+)
+ create mode 100644 ccc.txt
+
+----------------------------
+//07
+----------------------------
+C:\Users\Administrator\Downloads\새 폴더 (3)>git reset --hard 246f43e
+HEAD is now at 246f43e aaa.txt added
+
+----------------------------
+//08
+----------------------------
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git log --oneline
+246f43e (HEAD -> master) aaa.txt added
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git reflog
+246f43e (HEAD -> master) HEAD@{0}: reset: moving to 246f43e
+f344f48 HEAD@{1}: commit: .
+b506f2e HEAD@{2}: commit: bbb.txt added
+246f43e (HEAD -> master) HEAD@{3}: commit (initial): aaa.txt added
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git reset --hard f344f48
+HEAD is now at f344f48 .
+
+
+
+

@@ -1,0 +1,107 @@
+-----------------------------------------------------
+Local Repository -> Remote Repository
+-----------------------------------------------------
+---------------------------
+Local Repository
+---------------------------
+
+C:\Users\Administrator\Downloads\새 폴더 (4)>git init
+Initialized empty Git repository in C:/Users/Administrator/Downloads/새 폴더 (4)/.git/
+
+C:\Users\Administrator\Downloads\새 폴더 (4)>git add *
+
+C:\Users\Administrator\Downloads\새 폴더 (4)>git commit -m "V0.0"
+[master (root-commit) c255fb1] V0.0
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+
+
+---------------------------
+Remote Repository (GITHUB)
+---------------------------
+새 Repository 생성
+
+
+---------------------------
+Local Repository
+---------------------------
+C:\Users\Administrator\Downloads\새 폴더 (4)>git branch
+* master
+
+C:\Users\Administrator\Downloads\새 폴더 (4)>git branch -M main
+
+C:\Users\Administrator\Downloads\새 폴더 (4)>git branch
+* main
+
+C:\Users\Administrator\Downloads\새 폴더 (4)>git remote add origin https://github.com/jungwoogyun/TESTREPO-01.git
+
+C:\Users\Administrator\Downloads\새 폴더 (4)>git remote -v
+origin  https://github.com/jungwoogyun/TESTREPO-01.git (fetch)
+origin  https://github.com/jungwoogyun/TESTREPO-01.git (push)
+
+C:\Users\Administrator\Downloads\새 폴더 (4)>git push origin
+fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+C:\Users\Administrator\Downloads\새 폴더 (4)>git push --set-upstream origin main
+
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 210 bytes | 210.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/jungwoogyun/TESTREPO-01.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+---------------------------
+두번째 수정 이후
+---------------------------
+C:\Users\Administrator\Downloads\새 폴더 (4)>git add *
+
+C:\Users\Administrator\Downloads\새 폴더 (4)>git commit -m V0.1
+[main 228b96b] V0.1
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+C:\Users\Administrator\Downloads\새 폴더 (4)>git push origin
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 301 bytes | 301.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/jungwoogyun/TESTREPO-01.git
+   c255fb1..228b96b  main -> main
+-----------------------------------------------------
+Local Repository <- Remote Repository(git pull)
+-----------------------------------------------------
+C:\Users\Administrator\Downloads\새 폴더 (4)>git init
+Initialized empty Git repository in C:/Users/Administrator/Downloads/새 폴더 (4)/.git/
+C:\Users\Administrator\Downloads\새 폴더 (4)>git remote -v
+C:\Users\Administrator\Downloads\새 폴더 (4)>git remote add origin01 https://github.com/jungwoogyun/TESTREPO-01.git
+C:\Users\Administrator\Downloads\새 폴더 (4)>git remote -v
+origin01        https://github.com/jungwoogyun/TESTREPO-01.git (fetch)
+origin01        https://github.com/jungwoogyun/TESTREPO-01.git (push)
+
+C:\Users\Administrator\Downloads\새 폴더 (4)>git pull origin01 main
+From https://github.com/jungwoogyun/TESTREPO-01
+ * branch            main       -> FETCH_HEAD
+
+C:\Users\Administrator\Downloads\새 폴더 (4)>git remote remove origin01
+C:\Users\Administrator\Downloads\새 폴더 (4)>git remote -v
+
+C:\Users\Administrator\Downloads\새 폴더 (4)>git remote add origin02 https://github.com/jungwoogyun/TESTREPO-02.git
+
+
+-----------------------------------------------------
+Local Repository <- Remote Repository(git clone)
+-----------------------------------------------------
+git clone https://github.com/jungwoogyun/TESTREPO-01.git
+git clone https://github.com/jungwoogyun/TESTREPO-02.git
+
+

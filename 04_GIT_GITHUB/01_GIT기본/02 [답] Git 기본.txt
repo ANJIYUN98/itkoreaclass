@@ -1,0 +1,151 @@
+---------------------
+01,02
+---------------------
+C:\Users\Administrator\Downloads\새 폴더 (3)>git init
+Initialized empty Git repository in C:/Users/Administrator/Downloads/새 폴더 (3)/.git/
+
+---------------------
+03,04
+---------------------
+C:\Users\Administrator\Downloads\새 폴더 (3)>git add *
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git commit -m "V0.0"
+[master (root-commit) 3acf140] V0.0
+ 1 file changed, 1 insertion(+)
+ create mode 100644 aaa.txt
+
+---------------------
+05,06
+---------------------
+C:\Users\Administrator\Downloads\새 폴더 (3)>git add *
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git commit -m "V0.1"
+[master d13257a] V0.1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 bbb.txt
+
+---------------------
+04
+---------------------
+C:\Users\Administrator\Downloads\새 폴더 (3)>git add *
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git commit -m "V0.2"
+[master 0f05e03] V0.2
+ 1 file changed, 1 insertion(+)
+ create mode 100644 ccc.txt
+
+---------------------
+07
+---------------------
+C:\Users\Administrator\Downloads\새 폴더 (3)>git branch dev
+C:\Users\Administrator\Downloads\새 폴더 (3)>git branch feature
+
+---------------------
+08
+---------------------
+C:\Users\Administrator\Downloads\새 폴더 (3)>git switch feature
+Switched to branch 'feature'
+
+---------------------
+09
+---------------------
+C:\Users\Administrator\Downloads\새 폴더 (3)>git commit -m "V0.3"
+[feature f61e466] V0.3
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 ddd.txt
+
+---------------------
+10
+---------------------
+C:\Users\Administrator\Downloads\새 폴더 (3)>git switch dev
+Switched to branch 'dev'
+C:\Users\Administrator\Downloads\새 폴더 (3)>git merge feature
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git log --oneline
+f61e466 (HEAD -> dev, feature) V0.3
+0f05e03 (master) V0.2
+d13257a V0.1
+3acf140 V0.0
+
+---------------------
+11
+---------------------
+C:\Users\Administrator\Downloads\새 폴더 (3)>git switch dev
+Switched to branch 'dev'
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git add *
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git commit -m "V0.4 by dev"
+[dev 74fb887] V0.4 by dev
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git switch feature
+Switched to branch 'feature'
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git add *
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git commit -m "V0.4 by feature"
+[feature 45ff35c] V0.4 by feature
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git switch dev
+Switched to branch 'dev'
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git merge feature
+Auto-merging aaa.txt
+CONFLICT (content): Merge conflict in aaa.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git status
+On branch dev
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   aaa.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git add *
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git merge --continue
+:wq 하기
+[dev 4a36e95] Merge branch 'feature' into dev
+
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git switch feature
+Switched to branch 'feature'
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git merge dev
+Updating 45ff35c..4a36e95
+Fast-forward
+ aaa.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+
+---------------------
+12
+---------------------
+C:\Users\Administrator\Downloads\새 폴더 (3)>git switch master
+Switched to branch 'master'
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git merge dev
+Updating 0f05e03..4a36e95
+Fast-forward
+ aaa.txt | 4 +++-
+ ddd.txt | 0
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 ddd.txt
+
+
+C:\Users\Administrator\Downloads\새 폴더 (3)>git log --oneline
+4a36e95 (HEAD -> master, feature, dev) Merge branch 'feature' into dev
+45ff35c V0.4 by feature
+74fb887 V0.4 by dev
+f61e466 V0.3
+0f05e03 V0.2
+d13257a V0.1
+3acf140 V0.0
