@@ -1,0 +1,220 @@
+[5장 9번]
+
+
+
+다음 Stack 인터페이스를 상속받아 실수를 저장하는 StringStack 클래스를 구현하라.
+
+interface Stack {
+   int length(); // 현재 스택에 저장된 개수 리턴
+   int capacity(); // 스택의 전체 저장 가능한 개수 리턴
+   String pop(); // 스택의 톱(top)에 실수 저장
+   boolean push(String val); // 스택의 톱(top)에 저장된 실수 리턴
+}
+그리고 다음 실행 사례와 같이 작동하도록 StackApp 클래스에 main() 메소드를 작성하라.
+
+총 스택 저장 공간의 크기 입력 >> 3
+문자열 입력 >> hello
+문자열 입력 >> sunny
+문자열 입력 >> smile
+문자열 입력 >> happy
+스택이 꽉 차서 푸시 불가!
+문자열 입력 >> 그만
+스택에 저장된 모든 문자열 팝 : smile sunny hello 
+
+ 
+
+class StringStack implements Stack {
+   private int num; // 저장 가능한 개수
+   private int set; // 저장 인덱스
+   private String[] stack;
+   public StringStack(int num) {
+      this.num = num;
+      this.set = 0;
+      stack = new String[num];
+   }
+   public int length() {
+      return set;
+   }
+   public int capacity() {
+      return stack.length;
+   }
+   public String pop() {
+      if(set-1 < 0)  // stack에 아무것도 넣지 않았을 떄
+         return null;
+      set--; // stack 한칸을 내려줌 (stack[set]은 빈공간을 가리키고 있으니깐)
+      String s = stack[set]; // 맨 위의 값
+      return s;
+   }
+   public boolean push(String val) {
+      if(set < num) {
+         stack[set] = val; //맨 위에 문자열을 넣어줌
+         set++; // stack 한칸을 올려줌
+         return true;
+      }
+      else
+         return false;
+   }
+}
+
+public class StackApp {
+
+   public static void main(String[] args) {
+      // TODO Auto-generated method stub
+      Scanner sc = new Scanner(System.in);
+      System.out.print("총 스택 저장 공간의 크기 입력 >> ");
+      int num = sc.nextInt();
+      StringStack stack = new StringStack(num);
+      while(true) {
+         System.out.print("문자열 입력 >> ");
+         String val = sc.next();
+         if(val.equals("그만"))
+            break;
+         if(!stack.push(val)) {
+            System.out.println("스택이 꽉 차서 푸시 불가!");
+         }
+      }
+      System.out.print("스택에 저장된 모든 문자열 팝 : ");
+      int len = stack.length();
+      for(int i=0; i<len; i++) {
+         String s = stack.pop();
+         System.out.print(s+" ");
+      }
+      sc.close();
+   }
+
+}
+
+
+[5장 10번]
+
+
+
+다음은 키와 값을 하나의 아이템으로 저장하고 검색 수정이 가능한 추상 클래스가 있다.
+
+abstract class PairMap {
+   protected String KeyArray[]; // key 들을 저장하는 배열
+   protected String valueArray[]; // value 들을 저장하는 배열
+   abstract String get(String key); // key 값을 가진 value 리턴, 없으면 null 리턴
+   abstract void put(String ket, String value); // key와 value를 쌍으로 저장. 기존에 key가 있으면, 값을 value로 수정
+   abstract String delete(String key); // key 값을 가진 아이템 (value와 함꼐) 삭제, 삭제된 value 값 리턴
+   abstract int length(); // 현재 저장된 아이템의 개수 리턴
+}
+PairMap을 상속받는 Dictionary 클래스를 구현하고, 이를 다음과 같이 활용하는 main() 메소드를 가진 클래스 DictionaryApp도 작성하라.
+
+
+ 
+public static void main(String[] args) {
+   Dictionary<K, V> dic = new Dictionary(10);
+   dic.put("황기태", "자바");
+   dic.put("이재문", "파이선");
+   dic.put("이재문", "C++"); // 이재문의 값을 C++로 수정
+   System.out.println("이재문의 값은 "+dic.get("이재문"));
+   System.out.println("황기태의 값은 "+dic.get("황기태"));
+   dic.delete("황기태"); // 황기태 아이템 삭제
+   System.out.println("황기태의 값은 "+dic.get("황기태")); //삭제된 아이템 접근
+이재문의 값은 C++
+황기태의 값은 자바
+황기태의 값은 null
+
+
+ 
+
+[5장 11번]
+
+
+
+철수 학생은 다음 3개의 필드와 메소드를 가진 4개의 클래스 Add, Sub, Mul, Div를 작성하려고 한다(4장 실습문제 11 참고).
+
+- int 타입의 a, b 필드: 2개의 피연산자
+- void setValue(int a, int b): 피연산자 값을 객체 내에 저장한다.
+- int calculate(): 클래스의 목적에 맞는 연산을 실행하고 결과를 리턴한다.
+곰곰 생각해보니, Add, Sub, Mul, Div 클래스에 공통된 필드와 메소드가 존재하므로 새로운 추상 클래스 Calc를 작성하고 Calc를 상속받아 만들면 되겠다고 생각했다. 그리고 main() 메소드에서 다음 실행 사례와 같이 2개의 정수와 연산자를 입력받은 후, Add, Sub, Mul, Div 중에서 이 연산을 처리할 수 있는 객체를 생성하고 setValue() 와 calculate()를 호출하여 그 결과 값을 화면에 출력하면 된다고 생각하였다. 철수처럼 프로그램을 작성하라.
+
+두 정수와 연산자를 입력하시오 >> 5 7 +
+12
+
+ 
+
+[5장 12번]
+
+
+
+텍스트로 입출력하는 간단한 그래픽 편집기를 만들어보자. 본문 5.6절과 5.7절에서 사례로 든 추상 클래스 Shape과 Line, Rect, Circle 클래스 코드를 잘 완성하고 이를 활용하여 아래 시행 예시처럼 "삽입", "삭제", "모두 보기", "종료" 의 4가지 그래픽 편집 기능을 가진 클래스 GraphicEditor을 작성하라.
+
+그래픽 에디터 beauty를 실행합니다.
+삽입(1), 삭제(2), 모두 보기(3), 종료(4) >> 1
+Line(1), Rect(2), Circle(3) >> 2
+삽입(1), 삭제(2), 모두 보기(3), 종료(4) >> 1
+Line(1), Rect(2), Circle(3) >> 3
+삽입(1), 삭제(2), 모두 보기(3), 종료(4) >> 3
+Rect
+Circle
+삽입(1), 삭제(2), 모두 보기(3), 종료(4) >> 2
+삭제할 도형의 위치 >> 3
+삭제할 수 없습니다.
+삽입(1), 삭제(2), 모두 보기(3), 종료(4) >> 4
+beauty을 종료합니다.
+[Hint] Shape을 추상 클래스로 작성한 사례는 다음과 같다.
+
+abstract class Shape {
+   private Shape next;
+   public Shape() { next = null; }
+   public void setNext(Shape obj) { next = obj; } // 링크 연결
+   public Shape getNext() { return next; }
+   public abstract void draw();
+}
+
+ 
+
+[5장 13번]
+
+
+
+다음은 도형의 구성을 묘사하는 인터페이스이다.
+
+interface Shape {
+   final double PI = 3.14; // 상수
+   void draw(); // 도형을 그리는 추상 메소드
+   double getArea(); // 도형의 면적을 리턴하는 추상 메소드
+   default public void redraw() { // 디폴트 메소드
+      System.out.print("--- 다시 그립니다.");
+      draw();
+   }
+}
+다음 main() 메소드와 실행 결과를 참고하여, 인터페이스 Shape을 구현한 클래스 Circle를 작성하고 전체 프로그램을 완성하라.
+
+public static void main(String[] args) {
+   Shape donut = new Circle(10); // 반지름이 10인 원 객체
+   donut.redraw();
+   System.out.println("면적은 "+ donut.getArea());
+}
+
+
+ 
+
+
+
+[5장 14번]
+
+
+
+다음 main() 메소드와 실행 결과를 참고하여, 문제 13의 Shape 인터페이스를 구현한 클래스 Oval, Rect를 추가 작성하고 전체 프로그램을 완성하라.
+
+public static void main(String[] args) {
+   Shape[] list = new Shape[3]; // Shape을 상속받은 클래스 객체의 레퍼런스 배열
+   list[0] = new Circle(10); // 반지름이 10인 원 객체
+   list[1] = new Oval(20, 30); // 20x30 사각형에 내접하는 타원
+   list[2] = new Rect(10, 40); // 10x40 크기의 사각형
+   for(int i=0; i<list.length; i++) list[i].redraw();
+   for(int i=0; i<list.length; i++) System.out.println("면적은 "+ list[i].getArea());
+}
+--- 다시 그립니다.반지름이 10인 원입니다.
+--- 다시 그립니다.20x30에 내접하는 타원입니다.
+--- 다시 그립니다.10x40크기의 사각형 입니다.
+면적은 314.0
+면적은 1884.0000000000002
+면적은 400.0
+
+
+ - 답 - 
+https://security-nanglam.tistory.com/218

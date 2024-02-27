@@ -1,0 +1,99 @@
+----------------------------------------------
+정보은닉 문제
+----------------------------------------------
+다음 클래스의 멤버변수를 private 로 설정한 후 GetterSetter 
+메서드를 통해 멤버변수에 접근하도록 하세요
+---------------
+class Simple
+---------------
+//멤버 변수
+int x; - private
+int y; - private
+//멤버 메서드
+Getx() : int		- x 값 return 
+Setx(int x) : void 	- x 값 삽입
+Gety() : int 		- y 값 return
+Sety(int y) : void 	- y 값 삽입
+---------------
+Main 메서드 
+---------------
+Simple obj1 = new Simple()
+Simple obj2 = new Simple()
+
+obj1.Setx(10);
+obj1.Sety(20);
+obj2.Setx(30);
+obj2.Sety(40);
+
+System.out.println("obj1의 x,y" + obj1.Getx()+","+obj1.Gety());
+System.out.println("obj2의 x,y" + obj2.Getx()+","+obj2.Gety());
+
+
+----------------------------------------------
+캡슐화
+----------------------------------------------
+------------------------------
+C06TeokbokkiRecp class
+------------------------------
+step 1() : void ->  떡을 넣고 물로 끓인다
+step 2() : void  -> 설탕 4큰술 간장 2큰술 고춧가루 1큰술 고추장 1큰술 넣는다
+step 3() : void  -> 잘풀어주면서 끓인다
+step 4() : void  -> 파를넣고 졸인다
+
+------------------------------
+C06Cooking 
+------------------------------
+C06TeokbokkiRecp teokkokkie = new C06TeokbokkiRecp();
+
+------------------------------
+Main메서드 
+------------------------------
+C06Cooking Jung = new C06Cooking();
+Jung.teokkokkie.TCook();
+
+
+
+----------------------------------------------
+this
+----------------------------------------------
+---------------
+Person class 
+---------------
+//멤버변수
+String name;
+String addr;
+int age;
+
+//생성자메서드
+1) Person()
+-> this("없음","없음",0) 사용해서 3) 생성자 호출  
+2) Person(String n,String a)
+-> this(n,a,0)으로 3) 생성자 호출
+3) Person(String n,String a, int n)
+-> 각각 name,addr,age 에 값 저장
+
+---------------
+Main 클래스 
+---------------
+Person kim = new Person();
+Person Lee = new Person("이지성","서울특별시");
+Person Son = new Person("손민수","대구광역시",20);
+
+
+
+
+
+
+----------------------------------------------
+string 관련 메서드 
+----------------------------------------------
+String 클래스로 문자열을 하나 입력 받습니다(영문으로 입력)
+1 입력받은 문자열의 길이를 출력하세요(length())
+2 문자열의 idx중에 2,3,4 idx 만 출력하세요(charAt())
+3 문자열을 모두 대문자로 출력하세요 
+4 문자열을 모두 소문자로 출력하세요 
+
+
+
+
+
