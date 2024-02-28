@@ -4,14 +4,15 @@ public class C04자료형 {
 
 	public static void main(String[] args) {
 		 
-		//--------------------
-		//정수 int - 4byte 정수 부호 o
-		//--------------------
+//		//--------------------
+//		//정수 int - 4byte 정수 부호 o
+//		//--------------------
 //		int n1 = 0b10101101;	//2진수값
 //		int n2 = 173;			//10진정수값
 //		int n3 = 0255;			//8진수
 //		int n4 = 0xad;			//16진수
 //		System.out.printf("%d %d %d %d\n", n1,n2,n3,n4);
+		
 		//--------------------
 		//정수 byte - 1byte 정수 부호 o
 		//--------------------
@@ -79,23 +80,23 @@ public class C04자료형 {
 //		byte ch4 = 'c'+2;
 //		System.out.println((char)ch4);
 //		System.out.println(ch4); // 011000011
-		
+//		
 //		char ch5  = 0xac00;
 //		char ch6 = 44032;
 //		
 //		System.out.println(ch5);
 //		System.out.println(ch6);
 //		System.out.println((char)(0b1010110000000000+1));
-		 
+//		 
 //		char ch6 = 0xac00+1;
 //		System.out.printf("%c %c\n", ch5,ch6);
 //		
-//		// \\u :유니코드값 이스케이프문자
+		// \\u :유니코드값 이스케이프문자
 //		System.out.printf("%c\n", '\uACa1');
-		
+//		
 //		System.out.printf("TEST : %c\n", '\uabcd');
-		
-		
+//		
+//		
 //		char n = 10;
 //		System.out.printf("HELLO %c WORLD", n);
 		
@@ -126,15 +127,15 @@ public class C04자료형 {
 		//boolean : 논리형(true/false 저장)
 		//--------------------
 		
-//		boolean flag = (10>11); 	// 참(긍정)
-//		if(flag) 
-//		{
-//			System.out.println("참인경우 실행");
-//		}
-//		else 
-//		{
-//			System.out.println("거짓인경우 실행");
-//		}
+		boolean flag = (10>11); 	// 참(긍정)
+		if(flag) 
+		{
+			System.out.println("참인경우 실행");
+		}
+		else 
+		{
+			System.out.println("거짓인경우 실행");
+		}
 		
 	
 		
