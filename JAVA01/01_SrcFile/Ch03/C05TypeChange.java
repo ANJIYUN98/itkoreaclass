@@ -3,6 +3,9 @@ package Ch03;
 public class C05TypeChange {
 	public static void main(String[] args) {
 		int num1 = 10, num2 = 4;
+//		System.out.println(10/4);    //2
+//		System.out.println(10.0/4);  //2.5
+		
 		double dnum1 = (double)num1 / num2 ; 		//피연산자 num1은 int 형이기때문에 연산후에 소수점 데이터손실
 
 		double dnum2 =  (num1*1.0) / num2;	//나누는 수를 double형으로 강제 형변환함으로서 연산결과 발생되는
