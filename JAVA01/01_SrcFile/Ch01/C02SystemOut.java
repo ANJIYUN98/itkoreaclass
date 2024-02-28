@@ -1,4 +1,4 @@
-package Ch01;
+package ch01;
 
 public class C02SystemOut {
 
@@ -25,7 +25,7 @@ public class C02SystemOut {
 		
 		
 		//System.out.printf()
-		//format : 형식,서식
+		//format : 형식,서식(문자 양식)
 		//%d : 10진수 정수 서식문자
 		//%f : 10진수 실수 서식문자
 		//%c : 한문자 서식문자
@@ -43,10 +43,7 @@ public class C02SystemOut {
 		System.out.println("HELLO WORLD");
 		
 		System.out.println("I Say \"HELLO\"");
-		
-		
-		
-		
+		// println은 "\n"을 기본적으로 해줌		
 		
 		
 	}
