@@ -183,24 +183,88 @@ public class C00While_TEST_2 {
 //		i<n		j<=i  j는 i의 수보다 작다가 똑같아지므로
 //		i++		j++
 		
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//		int i=0; //행증가
+//		int j=0; //별찍기
+//		while(i<n) {
+//					
+//			j=0;
+//			while(j<=i) {
+//				System.out.print("*");
+//				j++;
+//			}
+//					
+//			System.out.println();
+//			i++;
+//		}
+		
+		
+		
+		
+		//000*
+		//00***
+		//0*****
+		//*******
+		//0은 공백
+
+//		int i=0; //행증가
+//		int j=0; //공백
+//		int k=0; //별찍기
+//		
+//		while(i<4) {
+//			
+//			//공백먼저찍기
+//			j=0;
+//			while(j<=2-i) {
+//				System.out.print(" ");
+//				j++;
+//			}
+//			//별찍기
+//			k=0;
+//			while(k<=2*i) {
+//				System.out.print("*");
+//				k++;
+//			}
+//			
+//			System.out.println();
+//			i++;
+//		}
+		
+		
+		// 높이 입력받아서
+		//000*
+				//00***
+				//0*****
+				//*******
+				//0은 공백
+		
+		
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		int i=0; //행증가
-		int j=0; //별찍기
-		while(i<n) {
+
+				int i=0; //행증가
+				int j=0; //공백
+				int k=0; //별찍기
+				
+				while(i<n) {
 					
-			j=0;
-			while(j<=i) {
-				System.out.print("*");
-				j++;
-			}
+					//공백먼저찍기
+					j=0;
+					while(j<=(n-2)-i) {
+						System.out.print(" ");
+						j++;
+					}
+					//별찍기
+					k=0;
+					while(k<=2*i) {
+						System.out.print("*");
+						k++;
+					}
 					
-			System.out.println();
-			i++;
-		}
-		
-		
-		
+					System.out.println();
+					i++;
+				}
 		
 		
 	}
