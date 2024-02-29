@@ -168,6 +168,20 @@ public class C00While_TEST_2 {
 		
 		
 //		높이 입력받아 별찍기
+		//*
+		//**
+		//***
+		//****
+		
+//		i		j
+//		0		0-0
+//		1		0-1
+//		2		0-2
+//		3		0-3
+//		----------------------------
+//		i=0		j=0
+//		i<n		j<=i  j는 i의 수보다 작다가 똑같아지므로
+//		i++		j++
 		
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
