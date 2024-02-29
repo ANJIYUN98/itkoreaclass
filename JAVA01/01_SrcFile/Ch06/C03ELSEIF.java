@@ -41,30 +41,30 @@ public class C03ELSEIF {
 
 		
 		
-		/*
-		int num=80;
 		
-		if(num>=90)
-		{
-			System.out.printf("A");
-		}
-		else if(num>=80)
-		{
-			System.out.printf("B");
-		}
-		else if(num>=70)
-		{
-			System.out.printf("C");
-		}
-		else if(num>=60)
-		{
-			System.out.println("D");
-		}
-		else
-		{
-			
-		}
-		*/
+//		int num=80;
+//		
+//		if(num>=90)
+//		{
+//			System.out.printf("A");
+//		}
+//		else if(num>=80)
+//		{
+//			System.out.printf("B");
+//		}
+//		else if(num>=70)
+//		{
+//			System.out.printf("C");
+//		}
+//		else if(num>=60)
+//		{
+//			System.out.println("D");
+//		}
+//		else
+//		{
+//			
+//		}
+		
 		
 		//나이별로 요금을 부과하는 else if문을 만드세요
 		//8세 미만  : 요금은 1000원
