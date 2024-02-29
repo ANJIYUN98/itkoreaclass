@@ -150,21 +150,40 @@ public class C00While_TEST_2 {
 //		i<4		j<=i  j는 i의 수보다 작다가 똑같아지므로
 //		i++		j++
 		
+//		
+//		int i=0; //행증가
+//		int j=0; //별찍기
+//		while(i<4) {
+//			
+//			j=0;
+//			while(j<=i) {
+//				System.out.print("*");
+//				j++;
+//			}
+//			
+//			System.out.println();
+//			i++;
+//		}
 		
+		
+		
+//		높이 입력받아 별찍기
+		
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
 		int i=0; //행증가
 		int j=0; //별찍기
-		while(i<4) {
-			
+		while(i<n) {
+					
 			j=0;
 			while(j<=i) {
 				System.out.print("*");
 				j++;
 			}
-			
+					
 			System.out.println();
 			i++;
 		}
-		
 		
 		
 		
