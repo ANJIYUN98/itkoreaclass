@@ -23,8 +23,8 @@ public class C00INFO {
 	
 
 	//5 자바의 메모리 영역
-	//1) 스택영역				: { } 내에서 생성되는 공간(int,double....)
-	//2) 클래스(메서드)영역		: 공유메모리 영역(생성자,일반매서드,static매서드,static변수)
+	//1) 스택영역				: { } 내에서 생성되는 공간(int,double....)(멤버변수, 지역변수)
+	//2) 클래스(메서드)영역		: 공유메모리 영역(생성자,일반매서드,static매서드,static변수)(공유영역)
 	//3) 힙영역				: 객체 저장 영역(new 예약어 사용시 할당)
 	
 	
@@ -40,11 +40,35 @@ public class C00INFO {
 	
 	
 	
+	//
+	// C 
+	// struct person{
+	// char name[10];
+	// int age;
+	// }typedef Person
+	
+	
+	// C 구조체만들기
+	// int main(){
+	// Person * hone = (Person *) malloc(sizeof(Person)); 
+	// }
 	
 	
 	
+	//C++
+	// class Person{
+	// String name;
+	// int age;
+	
+	//C++
+	//Person & hong = new Person();
 	
 	
+	//JAVA 
+	// class Person{
+	//String name;
+	//int age;
+	//}
 	
 	
 	
