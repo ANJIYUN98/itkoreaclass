@@ -1,4 +1,4 @@
-//package Ch12;
+//package Ch12_1;
 //
 //
 //class Point2D{
@@ -46,6 +46,5 @@
 //	}
 //
 //}
-package Ch12_1;
 
 
